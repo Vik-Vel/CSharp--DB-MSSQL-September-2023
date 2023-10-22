@@ -2,10 +2,10 @@ USE SoftUni2
 
 /*1.	Employee Address
 Create a query that selects:
-•	EmployeeId
-•	JobTitle
-•	AddressId
-•	AddressText
+â€¢	EmployeeId
+â€¢	JobTitle
+â€¢	AddressId
+â€¢	AddressText
 Return the first 5 rows sorted by AddressId in ascending order.*/
 
 SELECT TOP 5 EmployeeID, JobTitle, e.AddressID, a.AddressText
@@ -15,10 +15,10 @@ ON e.AddressID = a.AddressID
 ORDER BY AddressID
 
 /*2. Write a query that selects:
-•	FirstName
-•	LastName
-•	Town
-•	AddressText
+â€¢	FirstName
+â€¢	LastName
+â€¢	Town
+â€¢	AddressText
 Sort them by FirstName in ascending order, then by LastName. Select the first 50 employees.*/
 
 SELECT TOP 50 e.FirstName, e.LastName, t.[Name] AS Town , a.AddressText
@@ -31,10 +31,10 @@ ORDER BY FirstName, LastName
 
 /*3.	Sales Employee
 Create a query that selects:
-•	EmployeeID
-•	FirstName
-•	LastName
-•	DepartmentName
+â€¢	EmployeeID
+â€¢	FirstName
+â€¢	LastName
+â€¢	DepartmentName
 Sort them by EmployeeID in ascending order. Select only employees from the "Sales" department.*/
 
 SELECT EmployeeID, FirstName, LastName, d.[Name] AS DepartmentName
@@ -47,10 +47,10 @@ ORDER BY EmployeeID
 
 /*4.	Employee Departments
 Create a query that selects:
-•	EmployeeID
-•	FirstName 
-•	Salary
-•	DepartmentName
+â€¢	EmployeeID
+â€¢	FirstName 
+â€¢	Salary
+â€¢	DepartmentName
 Filter only employees with a salary higher than 15000. Return the first 5 rows, sorted by DepartmentID in ascending order. */
 
 SELECT TOP 5 EmployeeID, FirstName, Salary, d.[Name] AS DepartmentName
@@ -62,8 +62,8 @@ ORDER BY e.DepartmentID
 
 /*5.	Employees Without Project
 Create a query that selects:
-•	EmployeeID
-•	FirstName
+â€¢	EmployeeID
+â€¢	FirstName
 Filter only employees without a project. Return the first 3 rows, sorted by EmployeeID in ascending order.*/
 
 SELECT TOP 3 e.EmployeeID, e.FirstName
@@ -77,10 +77,10 @@ ORDER BY e.EmployeeID
 
 /*6.	Employees Hired After
 Create a query that selects:
-•	FirstName
-•	LastName
-•	HireDate
-•	DeptName
+â€¢	FirstName
+â€¢	LastName
+â€¢	HireDate
+â€¢	DeptName
 Filter only employees hired after 1.1.1999 and are from either "Sales" or "Finance" department. Sort them by HireDate (ascending).*/
 
 SELECT FirstName, LastName, HireDate, d.[Name] AS DeptName
@@ -94,9 +94,9 @@ ORDER BY HireDate
 
 /*7.	Employees with Project
 Create a query that selects:
-•	EmployeeID
-•	FirstName
-•	ProjectName
+â€¢	EmployeeID
+â€¢	FirstName
+â€¢	ProjectName
 Filter only employees with a project which has started after 13.08.2002 and it is still ongoing (no end date). Return the first 5 rows sorted by EmployeeID in ascending order.*/
 
 SELECT TOP 5 ep.EmployeeID, e.FirstName, p.[Name] AS ProjectName
@@ -111,9 +111,9 @@ ORDER BY e.EmployeeID
 
 /*8.	Employee 24
 Create a query that selects:
-•	EmployeeID
-•	FirstName
-•	ProjectName
+â€¢	EmployeeID
+â€¢	FirstName
+â€¢	ProjectName
 Filter all the projects of employee with Id 24. If the project has started during or after 2005 the returned value should be NULL.*/
 
 SELECT e.EmployeeID, FirstName, --p.[Name] AS ProjectName
@@ -130,10 +130,10 @@ WHERE e.EmployeeID = 24
 
 /*9.	Employee Manager
 Create a query that selects:
-•	EmployeeID
-•	FirstName
-•	ManagerID
-•	ManagerName
+â€¢	EmployeeID
+â€¢	FirstName
+â€¢	ManagerID
+â€¢	ManagerName
 Filter all employees with a manager who has ID equals to 3 or 7. Return all the rows, sorted by EmployeeID in ascending order.*/
 
 SELECT e.EmployeeID, e.FirstName, e.ManagerID, m.FirstName AS ManagerName
@@ -145,10 +145,10 @@ ORDER BY e.EmployeeID
 
 /*10.	Employees Summary
 Create a query that selects:
-•	EmployeeID
-•	EmployeeName
-•	ManagerName
-•	DepartmentName
+â€¢	EmployeeID
+â€¢	EmployeeName
+â€¢	ManagerName
+â€¢	DepartmentName
 Show the first 50 employees with their managers and the departments they are in (show the departments of the employees). Order them by EmployeeID.*/
 
 SELECT TOP 50 e.EmployeeID, CONCAT_WS(' ',e.FirstName, e.LastName) AS EmployeeName, CONCAT_WS(' ',m.FirstName, m.LastName) AS ManagerName, d.[Name] AS DepartmentName
@@ -169,16 +169,16 @@ GROUP BY d.[Name]
 ORDER BY MinAverageSalary
 
 
-/*Part II – Queries for Geography Database*/
+/*Part II â€“ Queries for Geography Database*/
 
 USE Geography
 
 /*12.	Highest Peaks in Bulgaria
 Create a query that selects:
-•	CountryCode
-•	MountainRange
-•	PeakName
-•	Elevation
+â€¢	CountryCode
+â€¢	MountainRange
+â€¢	PeakName
+â€¢	Elevation
 Filter all the peaks in Bulgaria, which have elevation over 2835. Return all the rows, sorted by elevation in descending order.*/
 
 SELECT c.CountryCode,m.MountainRange,p.PeakName,p.Elevation
@@ -196,8 +196,8 @@ ORDER BY p.Elevation DESC
 
 /*13.	Count Mountain Ranges
 Create a query that selects:
-•	CountryCode
-•	MountainRanges
+â€¢	CountryCode
+â€¢	MountainRanges
 Filter the count of the mountain ranges in the United States, Russia and Bulgaria */
 
 SELECT CountryCode, COUNT(*) AS MountainRanges
@@ -208,8 +208,8 @@ GROUP BY CountryCode
 
 /*14.	Countries With or Without Rivers
 Create a query that selects:
-•	CountryName
-•	RiverName
+â€¢	CountryName
+â€¢	RiverName
 Find the first 5 countries with or without rivers in Africa. Sort them by CountryName in ascending order. */
 
 SELECT TOP 5 CountryName, r.RiverName
@@ -224,9 +224,9 @@ ORDER BY CountryName
 
 /*15.	*Continents and Currencies
 Create a query that selects:
-•	ContinentCode
-•	CurrencyCode
-•	CurrencyUsage
+â€¢	ContinentCode
+â€¢	CurrencyCode
+â€¢	CurrencyUsage
 Find all continents and their most used currency. Filter any currency, which is used in only one country. Sort your results by ContinentCode.*/
 
 SELECT ContinentCode, CurrencyCode, CurrencyUsage FROM
@@ -265,7 +265,7 @@ WHERE CurrencyRank = 1
 
 
 /*16.	Countries Without Any Mountains
-Create a query that returns the count of all countries, which don’t have a mountain.*/
+Create a query that returns the count of all countries, which donâ€™t have a mountain.*/
 
 SELECT COUNT(*)
 FROM Countries AS c
