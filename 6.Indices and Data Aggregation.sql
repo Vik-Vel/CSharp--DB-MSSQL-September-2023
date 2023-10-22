@@ -59,9 +59,9 @@ ORDER BY TotalSum DESC
 
 /*8.  Deposit Charge
 Create a query that selects:
-•	Deposit group 
-•	Magic wand creator
-•	Minimum deposit charge for each group 
+â€¢	Deposit group 
+â€¢	Magic wand creator
+â€¢	Minimum deposit charge for each group 
 Select the data in ascending order by MagicWandCreator and DepositGroup.*/
 
 SELECT DepositGroup, MagicWandCreator, MIN(DepositCharge) AS MinDepositCharge
@@ -72,16 +72,16 @@ GROUP BY DepositGroup, MagicWandCreator
 /*9. Age Groups
 Write down a query that creates 7 different groups based on their age.
 Age groups should be as follows:
-•	[0-10]
-•	[11-20]
-•	[21-30]
-•	[31-40]
-•	[41-50]
-•	[51-60]
-•	[61+]
+â€¢	[0-10]
+â€¢	[11-20]
+â€¢	[21-30]
+â€¢	[31-40]
+â€¢	[41-50]
+â€¢	[51-60]
+â€¢	[61+]
 The query should return
-•	Age groups
-•	Count of wizards in it*/
+â€¢	Age groups
+â€¢	Count of wizards in it*/
 
 SELECT AgeGroup, Count(*) FROM
 (SELECT FirstName, Age,
@@ -132,12 +132,12 @@ SELECT SUM(ResultTable.[Difference]) AS SumDifference
 FROM  (SELECT DepositAmount - (SELECT DepositAmount FROM WizzardDeposits WHERE Id = WizDeposits.Id +1) AS [Difference] FROM WizzardDeposits AS WizDeposits) AS ResultTable
 
 
-/*Part II – Queries for SoftUni Database*/
+/*Part II â€“ Queries for SoftUni Database*/
 
 /*13. Departments Total Salaries
 Create a query that shows the total sum of salaries for each department. Order them by DepartmentID.
 Your query should return:	
-•	DepartmentID*/
+â€¢	DepartmentID*/
 
 USE SoftUni2
 
@@ -150,7 +150,7 @@ ORDER BY DepartmentID
 /*14. Employees Minimum Salaries
 Select the minimum salary from the employees for departments with ID (2, 5, 7) but only for those, hired after 01/01/2000.
 Your query should return:	
-•	DepartmentID*/
+â€¢	DepartmentID*/
 
 SELECT DepartmentID, Min(Salary) AS MinimumSalary
 FROM Employees 
@@ -181,7 +181,7 @@ GROUP BY DepartmentID
 
 
 /*16. Employees Maximum Salaries
-Find the max salary for each department. Filter those, which have max salaries NOT in the range 30000 – 70000.*/
+Find the max salary for each department. Filter those, which have max salaries NOT in the range 30000 â€“ 70000.*/
 
 SELECT DepartmentID, MAX(Salary) AS MaxSalary
 FROM Employees
@@ -189,7 +189,7 @@ GROUP BY DepartmentID
 HAVING MAX(Salary) NOT BETWEEN 30000 AND 70000
 
 /*17. Employees Count Salaries
-Count the salaries of all employees, who don’t have a manager.*/
+Count the salaries of all employees, who donâ€™t have a manager.*/
 
 SELECT COUNT(*) AS [Count]
 FROM Employees
@@ -207,9 +207,9 @@ WHERE SalaryAvg.AvgSalary = 3
 
 /*19. **Salary Challenge
 Create a query that returns:
-•	FirstName
-•	LastName
-•	DepartmentID
+â€¢	FirstName
+â€¢	LastName
+â€¢	DepartmentID
 Select all employees who have salary higher than the average salary of their respective departments. Select only the first 10 rows. Order them by DepartmentID.*/
 
 
